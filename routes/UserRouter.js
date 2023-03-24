@@ -34,6 +34,13 @@ Router.put(
   controller.UpdatePassword
 )
 
+Router.put(
+  '/update_profile/:user_id',
+  middleware.stripToken,
+  middleware.verifyToken,
+  controller.UpdateUser
+)
+
 Router.delete(
   '/delete/:user_id',
   middleware.stripToken,
