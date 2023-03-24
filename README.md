@@ -22,6 +22,10 @@ Front-End Repo for a PERN stack e-commerce platform built and themed based off o
 
 A PERN stack e-commerce application that utilizes modern design for both desktop and mobile use. User Auth ensures that a customer on the site feels secure prior to making a purchase and Stripe is integrated to perform and complete the transaction. This application is designed to resemble a modern website however themed after the Poke Mart from the popular Pokemon franchise.
 
+[ERD Diagram](https://drive.google.com/file/d/1pT7Yn5MfhPFJ1Bx9wFkq5tyFC9esa4mX/view?usp=sharing) |
+[Component Hierarchy Diagram](https://drive.google.com/file/d/1Uj5BCTdJw_oAojA2aPct6-xQk6ZIACmP/view?usp=sharing) |
+[Repo](https://github.com/joshjumelet/Poke-Mart-E-Commerce)
+
 ---
 
 ### **_Motivation_**
