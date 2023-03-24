@@ -2,9 +2,10 @@
 
 ![Image](Images/Poke_Mart_Logo.jpeg)
 
-Front-End Repo for a PERN stack e-commerce platform built and themed based off of the Poke Mart.
-| Name | GitHub | LinkedIn |
-| :------------: | :----------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------: |
+Front-End Repo for a PERN stack e-commerce platform built and themed based off of the Poke Mart. A [Trello](https://trello.com/b/eAeGysdm/pok%C3%A9-mart-e-commerce-app) board was used during development.
+
+|      Name      |                                                               GitHub                                                               |                                                                  LinkedIn                                                                  |
+| :------------: | :--------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
 | Joshua Jumelet | [<img src="https://cdn.iconscout.com/icon/free/png-256/github-3089487-2567439.png" width="20%" />](https://github.com/joshjumelet) | [<img src="https://cdn-icons-png.flaticon.com/512/179/179330.png" width="10%" height="10%" />](https://www.linkedin.com/in/joshua-jumelet) |
 
 ## **_Table of Contents_**
