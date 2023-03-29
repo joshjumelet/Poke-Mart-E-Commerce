@@ -55,8 +55,8 @@ const Register = ({}) => {
               className='reg'
               onChange={handleChange}
               name='email'
-              type='text'
-              placeholder='example@email.coom'
+              type='email'
+              placeholder='example@example.coom'
               value={formValues.email}
               required
             />
@@ -79,7 +79,7 @@ const Register = ({}) => {
               className='reg'
               onChange={handleChange}
               name='password'
-              type='text'
+              type='password'
               value={formValues.password}
               required
             />
@@ -90,7 +90,7 @@ const Register = ({}) => {
               className='reg'
               onChange={handleChange}
               name='confirmPassword'
-              type='text'
+              type='password'
               value={formValues.confirmPassword}
               required
             />
