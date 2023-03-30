@@ -42,6 +42,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route
+          path="/profile"
+          element={<Profile handleLogout={handleLogout} user={user} />}
+        />
+        <Route
           path="/login"
           element={<Login setUser={setUser} setShowing={setShowing} />}
         />
