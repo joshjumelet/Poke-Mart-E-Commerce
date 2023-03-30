@@ -19,7 +19,7 @@ const UserProfile = ({ user, handleLogout }) => {
     <div className="user-profile">
       <div className="welcome">
         <h2>Welcome to the Poké Mart {thisUser?.name}!</h2>
-        <UserInfo thisUser={thisUser} />
+        <UserCard thisUser={thisUser} />
         <button className="logoutbtn" onClick={handleLogout}>
           Logout
         </button>
