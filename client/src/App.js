@@ -17,7 +17,13 @@ function App() {
 
   const checkToken = async () => {
     const user = await CheckSession()
-    setuser(user)
+    setUser(user)
+  }
+
+  const handleLogout = () => {
+    setUser(null)
+    localStorage.clear()
+    navigate('/')
   }
 
   useEffect(() => {

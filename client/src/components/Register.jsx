@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { RegisterUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
-const Register = ({}) => {
+const Register = ({ setShowing }) => {
   let navigate = useNavigate()
 
   let initialState = {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { LoginUser } from "../services/Auth";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, setShowing }) => {
   let navigate = useNavigate()
 
   const initialState = { email: '', password: '' }
