@@ -20,7 +20,7 @@ Router.get(
   '/details/:user_id',
   middleware.stripToken,
   middleware.verifyToken,
-  controller.GetUserById
+  controller.GetUserDetails
 )
 
 Router.post('/register', controller.RegisterUser)
