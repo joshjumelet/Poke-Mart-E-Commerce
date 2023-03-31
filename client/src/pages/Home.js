@@ -1,10 +1,11 @@
 import Client from '../services/api'
 import { Link, useNavigate } from 'react-router-dom'
 import Search from '../components/Search'
+import AllProducts from './AllProducts'
 import ProductCard from '../components/ProductCard'
 import { useState, useEffect } from 'react'
 
-const Home = () => {
+const Home = ({ products }) => {
   let navigate = useNavigate()
 
   const [searchResults, setSearchResults] = useState([])
@@ -45,6 +46,16 @@ const Home = () => {
           </section>
         </div>
       )}
+      <div>
+        <h2 className="products-title">View Our Inventory</h2>
+        <section className="container-grid">
+          {products.map((product) => (
+            <Link to={`/products/details/${product._id}`} key={product.id}>
+              <ProductCard name={product.name} image={product.image} />
+            </Link>
+          ))}
+        </section>
+      </div>
     </div>
   )
 }
