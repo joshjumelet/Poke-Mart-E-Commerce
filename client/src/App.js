@@ -8,6 +8,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Home from './pages/Home'
 import About from './pages/About'
+import Profile from './pages/Profile'
 
 function App() {
   let navigate = useNavigate()

@@ -1,6 +1,7 @@
 import Client from '../services/api'
 import { Link, useNavigate } from 'react-router-dom'
 import Search from '../components/Search'
+import ProductCard from '../components/ProductCard'
 import { useState, useEffect } from 'react'
 
 const Home = () => {
