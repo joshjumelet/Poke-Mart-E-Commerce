@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Client from '../services/api'
+import UserCard from '../components/UserCard'
 
 const UserProfile = ({ user, handleLogout }) => {
   const [thisUser, setThisUser] = useState({})
