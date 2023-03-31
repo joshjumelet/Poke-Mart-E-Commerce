@@ -1,5 +1,5 @@
 import './App.css'
-import axios from 'axios'
+import Client from './services/api'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
@@ -14,10 +14,16 @@ function App() {
 
   const [user, setUser] = useState(null)
   const [showing, setShowing] = useState(false)
+  const [products, setProducts] = useState([])
 
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)
+  }
+
+  const allProducts = async () => {
+    const response = await Client.get('/api/products/')
+    setProducts(response.data)
   }
 
   const handleLogout = () => {
@@ -31,6 +37,7 @@ function App() {
     if (token) {
       checkToken()
     }
+    allProducts()
   }, [])
 
   return (
@@ -39,20 +46,22 @@ function App() {
         <Nav />
       </div>
       <main>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route
-          path="/profile"
-          element={<Profile handleLogout={handleLogout} user={user} />}
-        />
-        <Route
-          path="/login"
-          element={<Login setUser={setUser} setShowing={setShowing} />}
-        />
-        <Route
-          path="/register"
-          element={<Register setShowing={setShowing} />}
-        />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/profile"
+            element={<Profile handleLogout={handleLogout} user={user} />}
+          />
+          <Route
+            path="/login"
+            element={<Login setUser={setUser} setShowing={setShowing} />}
+          />
+          <Route
+            path="/register"
+            element={<Register setShowing={setShowing} />}
+          />
+        </Routes>
       </main>
     </div>
   )

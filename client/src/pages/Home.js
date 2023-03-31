@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react'
 const Home = () => {
   let navigate = useNavigate()
 
-  const [products, setProducts] = useState([])
   const [searchResults, setSearchResults] = useState([])
   const [searched, setSearched] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
