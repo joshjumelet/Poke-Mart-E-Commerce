@@ -17,6 +17,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [showing, setShowing] = useState(false)
   const [products, setProducts] = useState([])
+  const [bag, setBag] = useState([])
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -27,6 +28,15 @@ function App() {
     const response = await Client.get('/api/products')
     console.log(response.data)
     setProducts(response.data)
+  }
+
+  const addToBag = (product) => {
+    let newBag = bag
+    newBag.push(product)
+    setBag(newBag)
+    let productArray = newOrder.products
+    productArray.push(product._id)
+    setNewOrder({ ...newOrder, products: productArray })
   }
 
   const handleLogout = () => {

@@ -50,7 +50,7 @@ const Home = ({ products }) => {
         <h2 className="products-title">View Our Inventory</h2>
         <section className="container-grid">
           {products.map((product) => (
-            <Link to={`/products/details/${product._id}`} key={product.id}>
+            <Link to={`/products/details/${product.id}`} key={product.id}>
               <ProductCard name={product.name} image={product.image} />
             </Link>
           ))}
