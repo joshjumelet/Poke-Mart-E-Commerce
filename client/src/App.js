@@ -1,4 +1,5 @@
 import './App.css'
+import axios from 'axios'
 import Client from './services/api'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
@@ -23,7 +24,8 @@ function App() {
   }
 
   const allProducts = async () => {
-    const response = await Client.get('/api/products/')
+    const response = await Client.get('/api/products')
+    console.log(response.data)
     setProducts(response.data)
   }
 
