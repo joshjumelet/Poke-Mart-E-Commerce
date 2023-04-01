@@ -1,7 +1,7 @@
 import './App.css'
 import axios from 'axios'
 import Client from './services/api'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
 import Nav from './components/Nav'
@@ -13,6 +13,7 @@ import Profile from './pages/Profile'
 
 function App() {
   let navigate = useNavigate()
+  let { id } = useParams()
 
   const [user, setUser] = useState(null)
   const [showing, setShowing] = useState(false)
@@ -30,15 +31,6 @@ function App() {
     setProducts(response.data)
   }
 
-  const addToBag = (product) => {
-    let newBag = bag
-    newBag.push(product)
-    setBag(newBag)
-    let productArray = newOrder.products
-    productArray.push(product._id)
-    setNewOrder({ ...newOrder, products: productArray })
-  }
-
   const handleLogout = () => {
     setUser(null)
     localStorage.clear()
@@ -53,6 +45,14 @@ function App() {
     allProducts()
   }, [])
 
+  const item = products.filter((product) => product.id === parseInt(id))
+
+  const addToBag = (item) => {
+    let newBag = [...bag]
+    newBag.push(item)
+    setBag(newBag)
+  }
+
   return (
     <div className="App">
       <div>
@@ -60,7 +60,10 @@ function App() {
       </div>
       <main>
         <Routes>
-          <Route path="/" element={<Home products={products} />} />
+          <Route
+            path="/"
+            element={<Home products={products} addToBag={addToBag} />}
+          />
           <Route path="/about" element={<About />} />
           <Route
             path="/profile"
