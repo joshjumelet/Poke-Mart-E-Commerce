@@ -19,7 +19,7 @@ const Login = ({ setUser, setShowing }) => {
     const payload = await LoginUser(formValues)
     setFormValues(initialState)
     setUser(payload)
-    navigate('/')
+    navigate('/profile')
   }
 
   return (

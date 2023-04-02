@@ -5,7 +5,7 @@ import AllProducts from './AllProducts'
 import ProductCard from '../components/ProductCard'
 import { useState, useEffect } from 'react'
 
-const Home = ({ products }) => {
+const Home = ({ products, addToBag }) => {
   let navigate = useNavigate()
 
   const [searchResults, setSearchResults] = useState([])
@@ -40,7 +40,11 @@ const Home = ({ products }) => {
           <section className="container-grid">
             {searchResults.map((result) => (
               <Link to={`/products/details/${result._id}`} key={result._id}>
-                <ProductCard name={result.name} image={result.image} />
+                <ProductCard
+                  name={result.name}
+                  image={result.image}
+                  addToBag={addToBag}
+                />
               </Link>
             ))}
           </section>
@@ -51,7 +55,11 @@ const Home = ({ products }) => {
         <section className="container-grid">
           {products.map((product) => (
             <Link to={`/products/details/${product.id}`} key={product.id}>
-              <ProductCard name={product.name} image={product.image} />
+              <ProductCard
+                name={product.name}
+                image={product.image}
+                addToBag={addToBag}
+              />
             </Link>
           ))}
         </section>

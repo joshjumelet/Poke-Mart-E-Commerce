@@ -10,6 +10,7 @@ import Login from './components/Login'
 import Home from './pages/Home'
 import About from './pages/About'
 import Profile from './pages/Profile'
+import AllProducts from './pages/AllProducts'
 
 function App() {
   let navigate = useNavigate()
@@ -56,7 +57,7 @@ function App() {
   return (
     <div className="App">
       <div>
-        <Nav />
+        <Nav user={user} handleLogout={handleLogout} />
       </div>
       <main>
         <Routes>
@@ -70,12 +71,28 @@ function App() {
             element={<Profile handleLogout={handleLogout} user={user} />}
           />
           <Route
+            path="/welcome"
+            element={
+              <Welcome
+                showing={showing}
+                setShowing={setShowing}
+                setUser={setUser}
+              />
+            }
+          />
+          <Route
             path="/login"
             element={<Login setUser={setUser} setShowing={setShowing} />}
           />
           <Route
             path="/register"
             element={<Register setShowing={setShowing} />}
+          />
+          <Route
+            path="/products"
+            element={
+              <AllProducts products={products} setProducts={setProducts} />
+            }
           />
         </Routes>
       </main>
