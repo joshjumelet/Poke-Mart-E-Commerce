@@ -58,6 +58,7 @@ const Home = ({ products, addToBag }) => {
               <ProductCard
                 name={product.name}
                 image={product.image}
+                price={product.price}
                 addToBag={addToBag}
               />
             </Link>
