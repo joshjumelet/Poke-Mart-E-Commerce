@@ -1,7 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import Client from '../services/api'
-import ProductCard from '../components/ProductCard'
 
 const ProductDetails = ({ products, bag, setBag }) => {
   let navigate = useNavigate()
@@ -26,9 +24,18 @@ const ProductDetails = ({ products, bag, setBag }) => {
 
   return (
     <div>
-      <div>
-        <h1></h1>
+      <div className="product-info">
+        <h1>
+          {productDetails.name} ${productDetails.price}
+        </h1>
       </div>
+      <div className="product-img">
+        <img src={productDetails.image} alt="product-card" />
+      </div>
+      <div>{productDetails.description}</div>
+      <button className="bagbtn" onClick={() => addToBag(productDetails)}>
+        Add to Bag
+      </button>
     </div>
   )
 }
