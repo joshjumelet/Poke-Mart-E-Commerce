@@ -12,7 +12,7 @@ const ProductDetails = ({ products }) => {
 
   return (
     <div>
-      <ProductCard product={product} />
+      <ProductCard products={products} />
     </div>
   )
 }

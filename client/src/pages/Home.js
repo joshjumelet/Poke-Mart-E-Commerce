@@ -39,7 +39,7 @@ const Home = ({ products, addToBag }) => {
           <h2>Search Results</h2>
           <section className="container-grid">
             {searchResults.map((result) => (
-              <Link to={`/products/details/${result._id}`} key={result._id}>
+              <Link to={`/products/${result._id}`} key={result._id}>
                 <ProductCard
                   name={result.name}
                   image={result.image}
@@ -54,7 +54,7 @@ const Home = ({ products, addToBag }) => {
         <h2 className="products-title">View Our Inventory</h2>
         <section className="container-grid">
           {products.map((product) => (
-            <Link to={`/products/details/${product.id}`} key={product.id}>
+            <Link to={`/products/${product.id}`} key={product.id}>
               <ProductCard
                 name={product.name}
                 image={product.image}

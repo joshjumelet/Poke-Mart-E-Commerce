@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Profile from './pages/Profile'
 import AllProducts from './pages/AllProducts'
+import ProductDetails from './pages/ProductDetails'
 import Welcome from './pages/Welcome'
 import Order from './pages/Order'
 
@@ -93,6 +94,12 @@ function App() {
             path="/products"
             element={
               <AllProducts products={products} setProducts={setProducts} />
+            }
+          />
+          <Route
+            path="/products/:id"
+            element={
+              <ProductDetails products={products} bag={bag} setBag={setBag} />
             }
           />
           <Route path="/order" element={<Order bag={bag} setBag={setBag} />} />
