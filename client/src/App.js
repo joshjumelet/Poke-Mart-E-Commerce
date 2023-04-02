@@ -11,6 +11,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Profile from './pages/Profile'
 import AllProducts from './pages/AllProducts'
+import Welcome from './pages/Welcome'
 
 function App() {
   let navigate = useNavigate()

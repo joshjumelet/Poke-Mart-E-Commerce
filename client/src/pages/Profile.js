@@ -19,7 +19,7 @@ const UserProfile = ({ user, handleLogout }) => {
   return (
     <div className="user-profile">
       <div className="welcome">
-        <h2>Welcome {thisUser?.name} to your to the Poké Mart Profile!</h2>
+        <h2>Welcome {thisUser?.name} to your Poké Mart Profile!</h2>
         <UserCard thisUser={thisUser} />
         <button className="logoutbtn" onClick={handleLogout}>
           Logout
