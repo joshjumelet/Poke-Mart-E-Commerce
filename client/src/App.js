@@ -1,5 +1,4 @@
 import './App.css'
-import axios from 'axios'
 import Client from './services/api'
 import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
@@ -12,6 +11,7 @@ import About from './pages/About'
 import Profile from './pages/Profile'
 import AllProducts from './pages/AllProducts'
 import Welcome from './pages/Welcome'
+import Order from './pages/Order'
 
 function App() {
   let navigate = useNavigate()
@@ -95,6 +95,7 @@ function App() {
               <AllProducts products={products} setProducts={setProducts} />
             }
           />
+          <Route path="/order" element={<Order bag={bag} setBag={setBag} />} />
         </Routes>
       </main>
     </div>
