@@ -18,6 +18,9 @@ const Nav = ({ user, handleLogout }) => {
           <Link to='/welcome' className='nav-link'>Login</Link>
         </div>
         <div>
+          <Link to='/profile' className='nav-link'>Profile</Link>
+        </div>
+        <div>
           <Link to='/order' className='nav-link'>Bag</Link>
         </div>
         <div>

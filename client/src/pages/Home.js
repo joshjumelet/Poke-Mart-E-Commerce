@@ -4,7 +4,7 @@ import Client from '../services/api'
 import Search from '../components/Search'
 import ProductCard from '../components/ProductCard'
 
-const Home = ({ products, user, addToBag }) => {
+const Home = ({ products, user, addToBag, handleLogout }) => {
   let navigate = useNavigate()
   let { id } = useParams()
 
@@ -65,6 +65,9 @@ const Home = ({ products, user, addToBag }) => {
           ))}
         </section>
       </div>
+      <button className="logoutbtn" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   )
 }

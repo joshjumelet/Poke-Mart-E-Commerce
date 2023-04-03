@@ -2,17 +2,12 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Client from '../services/api'
 
-const ProductDetails = ({ products, allProducts, bag, setBag }) => {
+const ProductDetails = ({ products, allProducts, bag, setBag, addToBag }) => {
   let navigate = useNavigate()
   let { id } = useParams()
 
   const [details, setDetails] = useState({})
   const [updated, setUpdated] = useState(false)
-  const [orders, setOrders] = useState([])
-  const [newOrder, setNewOrder] = useState({
-    product_id: {},
-    quantity: 1
-  })
 
   const productDetails = products.find((product) => {
     return product.id === parseInt(id)
@@ -26,7 +21,7 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
     e.preventDefault()
     await Client.put(`/api/products/update/${id}`, details)
     setDetails({ ...details })
-    alert('The info on this ride has been updated!')
+    alert('The info on this product has been updated!')
     window.location.reload(false)
   }
 
@@ -46,33 +41,6 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
       navigate('/')
       allProducts()
     }
-  }
-
-  const addOrder = async (e) => {
-    e.preventDefault()
-    let response = await Client.post(`api/orders/${id}`, newOrder)
-    let currentOrders = orders
-    currentOrders.push(response.data.order)
-    setOrders(currentOrders)
-    setNewOrder({
-      product_id: {},
-      quantity: 1
-    })
-    setBag([])
-    navigate('/')
-  }
-
-  const handleOrder = (e) => {
-    setNewOrder({ ...newOrder, [e.target.id]: e.target.value })
-  }
-
-  const addToBag = (product) => {
-    let newBag = bag
-    newBag.push(productDetails)
-    setBag(newBag)
-    let productArr = newOrder.product_id
-    productArr.push(id)
-    setNewOrder({ ...newOrder, product_id: productArr })
   }
 
   return (
