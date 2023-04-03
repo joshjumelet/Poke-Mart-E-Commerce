@@ -94,7 +94,11 @@ function App() {
           <Route
             path="/products"
             element={
-              <AllProducts products={products} setProducts={setProducts} />
+              <AllProducts
+                products={products}
+                setProducts={setProducts}
+                allProducts={allProducts}
+              />
             }
           />
           <Route

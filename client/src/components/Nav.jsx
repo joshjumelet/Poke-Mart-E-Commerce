@@ -20,6 +20,9 @@ const Nav = ({ user, handleLogout }) => {
         <div>
           <Link to='/order' className='nav-link'>Bag</Link>
         </div>
+        <div>
+          <Link to='/create' className='nav-link'>Add Product</Link>
+        </div>
       </div>
     </div>
   )

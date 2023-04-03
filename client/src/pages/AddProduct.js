@@ -16,7 +16,7 @@ const AddProduct = ({ allProducts }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await Client.post('/api/products/create', newPark)
+      await Client.post('/api/products/create', newProduct)
       setNewProduct(initProduct)
       allProducts()
       navigate('/')
