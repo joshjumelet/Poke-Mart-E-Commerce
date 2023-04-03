@@ -2,7 +2,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Client from '../services/api'
 
-const ProductDetails = ({ products, allProducts, bag, setBag, addToBag }) => {
+const ProductDetails = ({ products, allProducts, bag, setBag }) => {
   let navigate = useNavigate()
   let { id } = useParams()
 
@@ -12,6 +12,7 @@ const ProductDetails = ({ products, allProducts, bag, setBag, addToBag }) => {
   const productDetails = products.find((product) => {
     return product.id === parseInt(id)
   })
+  console.log(id)
 
   useEffect(() => {
     setDetails(productDetails)
@@ -43,6 +44,12 @@ const ProductDetails = ({ products, allProducts, bag, setBag, addToBag }) => {
     }
   }
 
+  const addToBag = (productDetails) => {
+    let newBag = [...bag]
+    newBag.push(productDetails)
+    setBag(newBag)
+  }
+
   return (
     <div>
       <div className="product-info">
@@ -57,6 +64,21 @@ const ProductDetails = ({ products, allProducts, bag, setBag, addToBag }) => {
       <button className="bagbtn" onClick={() => addToBag(productDetails)}>
         Add to Bag
       </button>
+      <div>
+        <span>
+          {bag.length ? (
+            <button
+              onClick={() => navigate('/order')}
+              type="button"
+              className="bagbtn"
+            >
+              View Cart
+            </button>
+          ) : (
+            <h4></h4>
+          )}
+        </span>
+      </div>
       <h4>
         Update Product Info: Please fill in the updated info in the
         corresponding field
