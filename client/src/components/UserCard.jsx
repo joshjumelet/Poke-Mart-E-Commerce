@@ -11,9 +11,6 @@ const UserCard = ({ thisUser }) => {
         <div className="info">
           <span>Address:</span> {thisUser?.address}
         </div>
-        {/* <div className="info">
-          <span>Password:</span> {thisUser?.passwordDigest}
-        </div> */}
       </div>
     </div>
   )

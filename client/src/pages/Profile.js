@@ -51,6 +51,47 @@ const UserProfile = ({ user, handleLogout }) => {
       <div className="welcome">
         <h2>Welcome {thisUser?.name} to your Poké Mart Profile!</h2>
         <UserCard thisUser={thisUser} />
+        <h4>
+          Update User Info: Please fill in the updated info in the corresponding
+          field
+        </h4>
+        <div>
+          <button onClick={update}>Update Info</button>
+          {updated && (
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                onChange={handleChange}
+                value={userDetails.name}
+              />
+              <label htmlFor="email">Email:</label>
+              <input
+                type="text"
+                id="email"
+                onChange={handleChange}
+                value={userDetails.description}
+              />
+              <label htmlFor="address">Address:</label>
+              <input
+                type="text"
+                id="address"
+                onChange={handleChange}
+                value={userDetails.price}
+              />
+              <button type="submit" className="button">
+                Update User
+              </button>
+            </form>
+          )}
+        </div>
+        <div className="delete">
+          <h4>Delete User:</h4>
+          <button onClick={deleted} className="button">
+            Delete
+          </button>
+        </div>
         <button className="logoutbtn" onClick={handleLogout}>
           Logout
         </button>
