@@ -18,6 +18,25 @@ const GetProductDetails = async (req, res) => {
   }
 }
 
+const FindProduct = async (req, res) => {
+  try {
+    const { search } = req.query
+    console.log(search)
+    const products = await Product.findAll({
+      where: {
+        [Op.or]: [{ name: search }]
+      }
+    })
+
+    if (products) {
+      return res.status(200).json({ products })
+    }
+    return res.status(401).send('No matching products found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 const CreateProduct = async (req, res) => {
   try {
     const product = {
@@ -56,6 +75,7 @@ const DeleteProduct = async (req, res) => {
 module.exports = {
   GetProducts,
   GetProductDetails,
+  FindProduct,
   CreateProduct,
   UpdateProduct,
   DeleteProduct

@@ -15,9 +15,10 @@ const Home = ({ products, user, addToBag, handleLogout }) => {
   const getSearchResults = async (e) => {
     e.preventDefault()
     const response = await Client.get(`/api/products/${searchQuery}`)
-    setSearchResults(response.data.results)
-    setSearched(true)
-    setSearchQuery('')
+    console.log(response)
+    // setSearchResults(response.data)
+    // setSearched(true)
+    // setSearchQuery('')
   }
 
   const handleChange = (e) => {
