@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Client from '../services/api'
 import UserCard from '../components/UserCard'
+import UpdatePassword from '../components/UpdatePassword'
 
 const UserProfile = ({ user, handleLogout }) => {
   let navigate = useNavigate()
@@ -85,6 +86,9 @@ const UserProfile = ({ user, handleLogout }) => {
               </button>
             </form>
           )}
+        </div>
+        <div>
+          <UpdatePassword thisUser={thisUser} />
         </div>
         <div className="delete">
           <h4>Delete User:</h4>
