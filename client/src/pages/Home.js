@@ -14,33 +14,50 @@ const Home = ({ products, user, addToBag, handleLogout }) => {
 
   const getSearchResults = async (e) => {
     e.preventDefault()
-    const response = await Client.get(`/api/products/${searchQuery}`)
+    const response = await Client.get(
+      `/api/products/find-product?search=${searchQuery}`
+    )
     console.log(response)
-    // setSearchResults(response.data)
-    // setSearched(true)
-    // setSearchQuery('')
+    const results = response.data.products.filter((product) =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    setSearchResults(results)
+    console.log(results)
+    setSearchQuery('')
+    setSearched(true)
   }
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value)
   }
 
+  const clearSearch = () => {
+    setSearchResults([])
+    setSearched(false)
+  }
+
   return (
     <div>
-      <h1 className="title">Hi {user?.name}! Welcome to the Poké Mart</h1>
+      <h1 className="title">Hi! Welcome to the Poké Mart</h1>
       <div>
         <Search
           onSubmit={getSearchResults}
           value={searchQuery}
           onChange={handleChange}
+          clearSearch={clearSearch}
         />
       </div>
-      {searched && (
+      {searched && searchResults.length === 0 && (
+        <div>
+          <p className="noResult">There are no matching search results</p>
+        </div>
+      )}
+      {searchResults.length > 0 && (
         <div>
           <h2>Search Results</h2>
           <section className="container-grid">
             {searchResults.map((result) => (
-              <Link to={`/products/${result._id}`} key={result._id}>
+              <Link to={`/products/${result.id}`} key={result.id}>
                 <ProductCard
                   name={result.name}
                   image={result.image}
