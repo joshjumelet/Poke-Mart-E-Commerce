@@ -8,6 +8,11 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
 
   const [details, setDetails] = useState({})
   const [updated, setUpdated] = useState(false)
+  const [orders, setOrders] = useState([])
+  const [newOrder, setNewOrder] = useState({
+    product_id: {},
+    quantity: 1
+  })
 
   const productDetails = products.find((product) => {
     return product.id === parseInt(id)
@@ -16,12 +21,6 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
   useEffect(() => {
     setDetails(productDetails)
   }, [products])
-
-  const addToBag = (item) => {
-    let newBag = [...bag]
-    newBag.push(item)
-    setBag(newBag)
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -47,6 +46,33 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
       navigate('/')
       allProducts()
     }
+  }
+
+  const addOrder = async (e) => {
+    e.preventDefault()
+    let response = await Client.post(`api/orders/${id}`, newOrder)
+    let currentOrders = orders
+    currentOrders.push(response.data.order)
+    setOrders(currentOrders)
+    setNewOrder({
+      product_id: {},
+      quantity: 1
+    })
+    setBag([])
+    navigate('/')
+  }
+
+  const handleOrder = (e) => {
+    setNewOrder({ ...newOrder, [e.target.id]: e.target.value })
+  }
+
+  const addToBag = (product) => {
+    let newBag = bag
+    newBag.push(productDetails)
+    setBag(newBag)
+    let productArr = newOrder.product_id
+    productArr.push(id)
+    setNewOrder({ ...newOrder, product_id: productArr })
   }
 
   return (

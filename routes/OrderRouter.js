@@ -24,7 +24,7 @@ Router.get(
 )
 
 Router.post(
-  '/:user_id/:product_id',
+  '/:product_id',
   middleware.stripToken,
   middleware.verifyToken,
   controller.CreateOrder

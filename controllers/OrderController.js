@@ -1,11 +1,9 @@
-const { Order, Product, User } = require('../models')
+const { Order, Product } = require('../models')
 
 const CreateOrder = async (req, res) => {
   try {
-    let userId = parseInt(req.params.user_id)
     let productId = parseInt(req.params.product_id)
     let orderBody = {
-      user_id: userId,
       product_id: productId,
       ...req.body
     }

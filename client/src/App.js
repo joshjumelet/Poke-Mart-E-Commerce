@@ -49,7 +49,7 @@ function App() {
   }, [])
 
   const item = products.filter((product) => product.id === parseInt(id))
-
+  console.log(item)
   const addToBag = (item) => {
     let newBag = [...bag]
     newBag.push(item)
