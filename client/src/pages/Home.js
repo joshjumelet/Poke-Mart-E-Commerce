@@ -1,12 +1,12 @@
-import Client from '../services/api'
-import { Link, useNavigate } from 'react-router-dom'
-import Search from '../components/Search'
-import AllProducts from './AllProducts'
-import ProductCard from '../components/ProductCard'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import Client from '../services/api'
+import Search from '../components/Search'
+import ProductCard from '../components/ProductCard'
 
 const Home = ({ products, user, addToBag }) => {
   let navigate = useNavigate()
+  let { id } = useParams()
 
   const [searchResults, setSearchResults] = useState([])
   const [searched, setSearched] = useState(false)

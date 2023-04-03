@@ -31,7 +31,6 @@ function App() {
 
   const allProducts = async () => {
     const response = await Client.get('/api/products')
-    console.log(response.data)
     setProducts(response.data)
   }
 
