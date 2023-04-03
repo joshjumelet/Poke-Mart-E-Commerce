@@ -5,14 +5,13 @@ import Client from '../services/api'
 const ProductDetails = ({ products, allProducts, bag, setBag }) => {
   let navigate = useNavigate()
   let { id } = useParams()
-  console.log(id)
+
   const [details, setDetails] = useState({})
   const [updated, setUpdated] = useState(false)
 
   const productDetails = products.find((product) => {
     return product.id === parseInt(id)
   })
-  console.log(productDetails)
 
   useEffect(() => {
     setDetails(productDetails)
@@ -26,8 +25,8 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await Client.put(`/api/products/update/${id}`, productDetails)
-    setDetails({ ...productDetails })
+    await Client.put(`/api/products/update/${id}`, details)
+    setDetails({ ...details })
     alert('The info on this ride has been updated!')
     window.location.reload(false)
   }
@@ -37,14 +36,14 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
   }
 
   const handleChange = (e) => {
-    setDetails({ ...productDetails, [e.target.id]: e.target.value })
+    setDetails({ ...details, [e.target.id]: e.target.value })
   }
 
   const deleted = async () => {
     let text = 'Are you sure to delete this product?'
     if (window.confirm(text) === true) {
-      await Client.delete(`/api/products/delete/${id}`, productDetails)
-      setDetails({ ...productDetails })
+      await Client.delete(`/api/products/delete/${id}`, details)
+      setDetails({ ...details })
       navigate('/')
       allProducts()
     }
@@ -54,13 +53,13 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
     <div>
       <div className="product-info">
         <h1>
-          {productDetails.name} ${productDetails.price}
+          {productDetails?.name} ${productDetails?.price}
         </h1>
       </div>
       <div className="product-img">
-        <img src={productDetails.image} alt="product-card" />
+        <img src={productDetails?.image} alt="product-card" />
       </div>
-      <div>{productDetails.description}</div>
+      <div>{productDetails?.description}</div>
       <button className="bagbtn" onClick={() => addToBag(productDetails)}>
         Add to Bag
       </button>
@@ -77,14 +76,14 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
               type="text"
               id="name"
               onChange={handleChange}
-              value={productDetails.name}
+              value={details.name}
             />
             <label htmlFor="image">Image Url:</label>
             <input
               type="text"
               id="image"
               onChange={handleChange}
-              value={productDetails.image}
+              value={details.image}
             />
             <label htmlFor="description">Description:</label>
             <textarea
@@ -92,14 +91,14 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
               rows="5"
               id="description"
               onChange={handleChange}
-              value={productDetails.description}
+              value={details.description}
             ></textarea>
             <label htmlFor="price">Price:</label>
             <input
               type="text"
               id="price"
               onChange={handleChange}
-              value={productDetails.price}
+              value={details.price}
             />
             <button type="submit" className="button">
               Update Product

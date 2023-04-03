@@ -5,7 +5,7 @@ import AllProducts from './AllProducts'
 import ProductCard from '../components/ProductCard'
 import { useState, useEffect } from 'react'
 
-const Home = ({ products, addToBag }) => {
+const Home = ({ products, user, addToBag }) => {
   let navigate = useNavigate()
 
   const [searchResults, setSearchResults] = useState([])
@@ -26,7 +26,7 @@ const Home = ({ products, addToBag }) => {
 
   return (
     <div>
-      <h1 className="title">Hi! Welcome to the Poké Mart</h1>
+      <h1 className="title">Hi {user?.name}! Welcome to the Poké Mart</h1>
       <div>
         <Search
           onSubmit={getSearchResults}
