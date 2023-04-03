@@ -13,6 +13,7 @@ import AllProducts from './pages/AllProducts'
 import ProductDetails from './pages/ProductDetails'
 import Welcome from './pages/Welcome'
 import Order from './pages/Order'
+import AddProduct from './pages/AddProduct'
 
 function App() {
   let navigate = useNavigate()
@@ -103,6 +104,10 @@ function App() {
             }
           />
           <Route path="/order" element={<Order bag={bag} setBag={setBag} />} />
+          <Route
+            path="/create"
+            element={<AddProduct allProducts={allProducts} />}
+          />
         </Routes>
       </main>
     </div>
