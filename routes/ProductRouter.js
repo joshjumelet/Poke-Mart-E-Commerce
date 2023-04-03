@@ -6,6 +6,8 @@ Router.get('/', controller.GetProducts)
 
 Router.get('/:product_id', controller.GetProductDetails)
 
+Router.get('/find-product', controller.FindProduct)
+
 Router.post(
   '/create',
   middleware.stripToken,
