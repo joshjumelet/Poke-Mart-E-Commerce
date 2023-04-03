@@ -110,3 +110,27 @@ input:hover {
   margin: 18px 0px 10px 10px;
   cursor: pointer;
 }
+
+.about {
+  margin: 3%;
+  font-size: 1.4em;
+}
+
+.about-us {
+  padding: 1.7em;
+  padding-right: .05em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.josh {
+  max-width: 25%;
+  max-height: 25%;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+.github {
+  border-radius: 50%;
+}
