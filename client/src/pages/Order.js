@@ -11,6 +11,10 @@ const Order = ({ bag, setBag }) => {
     setBag(newBag)
   }
 
+  const handleClick = () => {
+    navigate('/complete')
+  }
+
   return (
     <div>
       <div className="bag-card">
@@ -45,7 +49,7 @@ const Order = ({ bag, setBag }) => {
           </section>
         </form>
         <div className="complete-order">
-          <button className="button" onClick={() => navigate('/complete')}>
+          <button className="button" onClick={() => handleClick()}>
             Place Order
           </button>
         </div>

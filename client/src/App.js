@@ -113,7 +113,7 @@ function App() {
           />
           <Route
             path="/complete"
-            element={<OrderComplete bag={bag} user={user} />}
+            element={<OrderComplete bag={bag} setBag={setBag} user={user} />}
           />
         </Routes>
       </main>
