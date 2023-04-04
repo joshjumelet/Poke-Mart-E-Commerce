@@ -14,6 +14,7 @@ import ProductDetails from './pages/ProductDetails'
 import Welcome from './pages/Welcome'
 import Order from './pages/Order'
 import AddProduct from './pages/AddProduct'
+import OrderComplete from './components/OrderComplete'
 
 function App() {
   let navigate = useNavigate()
@@ -106,6 +107,7 @@ function App() {
             path="/create"
             element={<AddProduct allProducts={allProducts} />}
           />
+          <Route path="/complete" element={<OrderComplete bag={bag} />} />
         </Routes>
       </main>
     </div>

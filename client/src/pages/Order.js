@@ -1,7 +1,8 @@
 import CartCard from '../components/CartCard'
+import { useNavigate } from 'react-router-dom'
 
 const Order = ({ bag, setBag }) => {
-  // let navigate = useNavigate()
+  let navigate = useNavigate()
 
   const totalPrice = bag.reduce((acc, id) => acc + id.price, 0)
 
@@ -43,6 +44,11 @@ const Order = ({ bag, setBag }) => {
             </ul>
           </section>
         </form>
+        <div className="complete-order">
+          <button className="button" onClick={() => navigate('/complete')}>
+            Place Order
+          </button>
+        </div>
       </div>
     </div>
   )
