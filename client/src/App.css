@@ -261,3 +261,7 @@ input:hover {
   justify-content: center;
   margin-bottom: 5%;
 }
+
+.please-login {
+  color: white;
+}

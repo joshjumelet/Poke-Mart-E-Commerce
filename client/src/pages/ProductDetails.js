@@ -170,17 +170,16 @@ const ProductDetails = ({ products, allProducts, bag, setBag, user }) => {
           <div className="description-column">
             <div className="details-description">
               <h3>Description: {productDetails?.description}</h3>
+              <span></span>
+              <h3 className="please-login">
+                ** Please login to add items to your bag! **
+              </h3>
             </div>
           </div>
         </div>
       </div>
     </div>
   )
-  ;<div className="homebtn">
-    <Link to="/">
-      <button className="button">Home</button>
-    </Link>
-  </div>
 }
 
 export default ProductDetails

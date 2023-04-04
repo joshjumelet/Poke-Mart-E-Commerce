@@ -111,7 +111,10 @@ function App() {
             path="/create"
             element={<AddProduct allProducts={allProducts} />}
           />
-          <Route path="/complete" element={<OrderComplete bag={bag} />} />
+          <Route
+            path="/complete"
+            element={<OrderComplete bag={bag} user={user} />}
+          />
         </Routes>
       </main>
     </div>
