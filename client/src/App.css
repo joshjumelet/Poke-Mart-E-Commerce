@@ -3,12 +3,22 @@ body {
   font-family: 'Courier New', Courier, monospace;
   background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/745029103191337.5f478ca02cacb.png');
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
 a {
   text-decoration: none;
+}
+
+.nav-container {
+  background-color: lightskyblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2em;
+  padding: 0px 20px 0px 50px;
 }
 
 .nav-link {
@@ -22,12 +32,31 @@ a {
   color: blue;
 }
 
+.nav-right {
+  display: flex;
+  flex-direction: row;
+}
+
 input {
   font-family: 'Courier New', Courier, monospace;
   background-color: whitesmoke;
   border: 0;
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-  padding: 0.5em 0.2em;
+  padding: 0.1em 0.2em;
+  width: auto;
+  transition: all 0.2s;
+  font-size: 1rem;
+  color: rgb(21, 19, 20);
+  margin: 10px 1em;
+  border-radius: 4px;
+}
+
+.search-input {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: whitesmoke;
+  border: 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4em 0.2em;
   width: auto;
   transition: all 0.2s;
   font-size: 1.3rem;
@@ -40,13 +69,17 @@ input:hover {
   background-color: rgb(203, 231, 255);
 }
 
-.search {
+.search-btn {
   font-family: 'Courier New', Courier, monospace;
   padding: 0.5em 1em;
   margin: 10px, 0px, 10px, 0px;
   font-size: 1.2rem;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.search-btn:hover {
+  background-color: rgb(0, 64, 255);
 }
 
 .title {
@@ -133,4 +166,72 @@ input:hover {
 
 .github {
   border-radius: 50%;
+}
+
+.details-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  padding: 3.5em 0;
+
+}
+
+.details-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.details-img {
+  margin: auto;
+  text-align: center;
+  width: 475px;
+  height: 350px;
+  border-radius: 16px;
+  border: 2px solid black;
+  background-color: white;
+}
+
+.details-description {
+  margin: 2em;
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.homebtn {
+  margin-top: 2%;
+}
+
+.button {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  background-color: white;
+  color: black;
+  border: solid black 2px;
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+  margin: 1%;
+  padding: 0.5em;
+}
+
+.button:hover {
+  background-color: rgb(0, 64, 255);
+}
+
+.loginbtn {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.switchbtn {
+  font-family: 'Courier New', Courier, monospace;
 }

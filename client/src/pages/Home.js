@@ -83,7 +83,7 @@ const Home = ({ products, user, addToBag, handleLogout }) => {
           ))}
         </section>
       </div>
-      <button className="logoutbtn" onClick={handleLogout}>
+      <button className="button" onClick={handleLogout}>
         Logout
       </button>
     </div>

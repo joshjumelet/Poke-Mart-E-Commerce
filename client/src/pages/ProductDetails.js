@@ -12,7 +12,6 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
   const productDetails = products.find((product) => {
     return product.id === parseInt(id)
   })
-  console.log(id)
 
   useEffect(() => {
     setDetails(productDetails)
@@ -44,9 +43,9 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
     }
   }
 
-  const addToBag = (productDetails) => {
+  const addToBag = (id) => {
     let newBag = [...bag]
-    newBag.push(productDetails)
+    newBag.push(id)
     setBag(newBag)
   }
 
@@ -57,80 +56,96 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
           {productDetails?.name} ${productDetails?.price}
         </h1>
       </div>
-      <div className="product-img">
-        <img src={productDetails?.image} alt="product-card" />
-      </div>
-      <div>{productDetails?.description}</div>
-      <button className="bagbtn" onClick={() => addToBag(productDetails)}>
-        Add to Bag
-      </button>
-      <div>
-        <span>
-          {bag.length ? (
-            <button
-              onClick={() => navigate('/order')}
-              type="button"
-              className="bagbtn"
-            >
-              View Cart
+      <div className="details-row">
+        <div className="details-column">
+          <div className="img-column">
+            <img
+              src={productDetails?.image}
+              alt="product-card"
+              className="details-img"
+            />
+          </div>
+        </div>
+        <div className="details-column">
+          <div className="description-column">
+            <div className="details-description">
+              <h3>Description: {productDetails?.description}</h3>
+            </div>
+            <button className="button" onClick={() => addToBag(productDetails)}>
+              Add to Bag
             </button>
-          ) : (
-            <h4></h4>
-          )}
-        </span>
+            <div>
+              <span>
+                {bag.length ? (
+                  <button
+                    onClick={() => navigate('/order')}
+                    type="button"
+                    className="button"
+                  >
+                    View Bag
+                  </button>
+                ) : (
+                  <h4></h4>
+                )}
+              </span>
+            </div>
+            <h4>
+              Update Product Info: Please fill in the updated info in the
+              corresponding field
+            </h4>
+            <div>
+              <button onClick={update} className="button">
+                Update Info
+              </button>
+              {updated && (
+                <form onSubmit={handleSubmit} className="update-form">
+                  <label htmlFor="name">Name:</label>
+                  <input
+                    type="text"
+                    id="name"
+                    onChange={handleChange}
+                    value={details.name}
+                  />
+                  <label htmlFor="image">Image Url:</label>
+                  <input
+                    type="text"
+                    id="image"
+                    onChange={handleChange}
+                    value={details.image}
+                  />
+                  <label htmlFor="description">Description:</label>
+                  <textarea
+                    cols="40"
+                    rows="5"
+                    id="description"
+                    onChange={handleChange}
+                    value={details.description}
+                  ></textarea>
+                  <label htmlFor="price">Price:</label>
+                  <input
+                    type="text"
+                    id="price"
+                    onChange={handleChange}
+                    value={details.price}
+                  />
+                  <button type="submit" className="button">
+                    Update Product
+                  </button>
+                </form>
+              )}
+            </div>
+            <div className="delete">
+              <h4>Delete Product:</h4>
+              <button onClick={deleted} className="button">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <h4>
-        Update Product Info: Please fill in the updated info in the
-        corresponding field
-      </h4>
-      <div>
-        <button onClick={update}>Update Info</button>
-        {updated && (
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              onChange={handleChange}
-              value={details.name}
-            />
-            <label htmlFor="image">Image Url:</label>
-            <input
-              type="text"
-              id="image"
-              onChange={handleChange}
-              value={details.image}
-            />
-            <label htmlFor="description">Description:</label>
-            <textarea
-              cols="40"
-              rows="5"
-              id="description"
-              onChange={handleChange}
-              value={details.description}
-            ></textarea>
-            <label htmlFor="price">Price:</label>
-            <input
-              type="text"
-              id="price"
-              onChange={handleChange}
-              value={details.price}
-            />
-            <button type="submit" className="button">
-              Update Product
-            </button>
-          </form>
-        )}
-      </div>
-      <div className="delete">
-        <h4>Delete Product:</h4>
-        <button onClick={deleted} className="button">
-          Delete
-        </button>
-      </div>
-      <div>
+      <div className="homebtn">
         <Link to="/">
-          <button>Home</button>
+          <button className="button">Home</button>
         </Link>
       </div>
     </div>

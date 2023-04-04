@@ -31,7 +31,7 @@ const UpdatePassword = ({ thisUser }) => {
         field
       </h4>
       <div>
-        <button onClick={update}>Update Password</button>
+        <button onClick={update} className="button">Update Password</button>
         {updated && (
           <form onSubmit={handleSubmit}>
             <label htmlFor="oldPassword">Old Password:</label>

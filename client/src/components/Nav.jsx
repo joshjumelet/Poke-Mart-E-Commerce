@@ -5,7 +5,7 @@ const Nav = ({ user, handleLogout }) => {
   return (
     <div className='nav-container'>
       <div className='nav-header'>
-        <h3 className='nav-title'>Poké Mart</h3>
+        <h3>Poké Mart</h3>
       </div>
       <div className='nav-right'>
         <div>

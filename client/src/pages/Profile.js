@@ -57,7 +57,9 @@ const UserProfile = ({ user, handleLogout }) => {
           field
         </h4>
         <div>
-          <button onClick={update}>Update Info</button>
+          <button onClick={update} className="button">
+            Update Info
+          </button>
           {updated && (
             <form onSubmit={handleSubmit}>
               <label htmlFor="name">Name:</label>
@@ -96,7 +98,7 @@ const UserProfile = ({ user, handleLogout }) => {
             Delete
           </button>
         </div>
-        <button className="logoutbtn" onClick={handleLogout}>
+        <button className="button" onClick={handleLogout}>
           Logout
         </button>
       </div>
