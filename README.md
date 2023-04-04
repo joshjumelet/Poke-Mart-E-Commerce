@@ -2,7 +2,7 @@
 
 ![Image](Images/Poke_Mart_Logo.jpeg)
 
-Front-End Repo for a PERN stack e-commerce platform built and themed based off of the Poke Mart. A [Trello](https://trello.com/b/eAeGysdm/pok%C3%A9-mart-e-commerce-app) board was used during development.
+Repo for a PERN stack e-commerce platform built and themed based off of the Poke Mart. A [Trello](https://trello.com/b/eAeGysdm/pok%C3%A9-mart-e-commerce-app) board was used during development.
 
 |      Name      |                                                               GitHub                                                               |                                                                  LinkedIn                                                                  |
 | :------------: | :--------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
@@ -30,7 +30,7 @@ A PERN stack e-commerce application that utilizes modern design for both desktop
 
 ### **_Motivation_**
 
-![Image](Images/Home_Page_Template.jpeg)
+![Image](Images/Complete_Home.jpeg)
 
 The motivation for this project was to refine my programming acumen; continue building and developing my knowledge around React.js as well as broadening my understanding of Postgres Sequelize databases and their interactions with a front end server. I build this project as my capstone project while enrolled in General Assembly's Software Engineering Immersive program.
 

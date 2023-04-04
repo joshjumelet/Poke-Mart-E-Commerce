@@ -17,12 +17,10 @@ const Home = ({ products, user, addToBag, handleLogout }) => {
     const response = await Client.get(
       `/api/products/find-product?search=${searchQuery}`
     )
-    console.log(response)
     const results = response.data.products.filter((product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase())
     )
     setSearchResults(results)
-    console.log(results)
     setSearchQuery('')
     setSearched(true)
   }
