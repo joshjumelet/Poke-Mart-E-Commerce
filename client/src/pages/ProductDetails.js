@@ -47,6 +47,7 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
     let newBag = [...bag]
     newBag.push(id)
     setBag(newBag)
+    alert('Item was added to your bag!')
   }
 
   return (
