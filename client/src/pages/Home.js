@@ -61,6 +61,7 @@ const Home = ({ products, user, addToBag, handleLogout }) => {
                 <ProductCard
                   name={result.name}
                   image={result.image}
+                  price={result.price}
                   addToBag={addToBag}
                 />
               </Link>

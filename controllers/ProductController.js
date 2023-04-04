@@ -1,4 +1,5 @@
 const { Product } = require('../models')
+const { Op } = require('sequelize')
 
 const GetProducts = async (req, res) => {
   try {
@@ -21,7 +22,6 @@ const GetProductDetails = async (req, res) => {
 const FindProduct = async (req, res) => {
   try {
     const { search } = req.query
-    console.log(search)
     const products = await Product.findAll({
       where: {
         [Op.or]: [{ name: search }]

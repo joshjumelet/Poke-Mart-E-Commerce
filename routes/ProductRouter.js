@@ -4,9 +4,9 @@ const middleware = require('../middleware')
 
 Router.get('/', controller.GetProducts)
 
-Router.get('/:product_id', controller.GetProductDetails)
-
 Router.get('/find-product', controller.FindProduct)
+
+Router.get('/:product_id', controller.GetProductDetails)
 
 Router.post(
   '/create',

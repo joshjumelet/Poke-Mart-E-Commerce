@@ -1,6 +1,6 @@
 import './App.css'
 import Client from './services/api'
-import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
 import Nav from './components/Nav'
@@ -18,7 +18,6 @@ import OrderComplete from './components/OrderComplete'
 
 function App() {
   let navigate = useNavigate()
-  let { id } = useParams()
 
   const [user, setUser] = useState(null)
   const [showing, setShowing] = useState(false)
@@ -96,7 +95,12 @@ function App() {
           <Route
             path="/products/:id"
             element={
-              <ProductDetails products={products} bag={bag} setBag={setBag} />
+              <ProductDetails
+                products={products}
+                bag={bag}
+                setBag={setBag}
+                user={user}
+              />
             }
           />
           <Route

@@ -2,7 +2,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Client from '../services/api'
 
-const ProductDetails = ({ products, allProducts, bag, setBag }) => {
+const ProductDetails = ({ products, allProducts, bag, setBag, user }) => {
   let navigate = useNavigate()
   let { id } = useParams()
 
@@ -50,7 +50,7 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
     alert('Item was added to your bag!')
   }
 
-  return (
+  return user ? (
     <div>
       <div className="product-info">
         <h1>
@@ -86,71 +86,101 @@ const ProductDetails = ({ products, allProducts, bag, setBag }) => {
                     View Bag
                   </button>
                 ) : (
-                  <h4></h4>
+                  <h4> </h4>
                 )}
               </span>
             </div>
-            <h4>
-              Update Product Info: Please fill in the updated info in the
-              corresponding field
-            </h4>
-            <div>
-              <button onClick={update} className="button">
-                Update Info
-              </button>
-              {updated && (
-                <form onSubmit={handleSubmit} className="update-form">
-                  <label htmlFor="name">Name:</label>
-                  <input
-                    type="text"
-                    id="name"
-                    onChange={handleChange}
-                    value={details.name}
-                  />
-                  <label htmlFor="image">Image Url:</label>
-                  <input
-                    type="text"
-                    id="image"
-                    onChange={handleChange}
-                    value={details.image}
-                  />
-                  <label htmlFor="description">Description:</label>
-                  <textarea
-                    cols="40"
-                    rows="5"
-                    id="description"
-                    onChange={handleChange}
-                    value={details.description}
-                  ></textarea>
-                  <label htmlFor="price">Price:</label>
-                  <input
-                    type="text"
-                    id="price"
-                    onChange={handleChange}
-                    value={details.price}
-                  />
-                  <button type="submit" className="button">
-                    Update Product
+          </div>
+          <div>
+            {user.id === 1 && (
+              <div>
+                <h4>
+                  Update Product Info: Please fill in the updated info in the
+                  corresponding field
+                </h4>
+                <button onClick={update} className="button">
+                  Update Info
+                </button>
+                {updated && (
+                  <form onSubmit={handleSubmit} className="update-form">
+                    <label htmlFor="name">Name:</label>
+                    <input
+                      type="text"
+                      id="name"
+                      onChange={handleChange}
+                      value={details.name}
+                    />
+                    <label htmlFor="image">Image Url:</label>
+                    <input
+                      type="text"
+                      id="image"
+                      onChange={handleChange}
+                      value={details.image}
+                    />
+                    <label htmlFor="description">Description:</label>
+                    <textarea
+                      cols="40"
+                      rows="5"
+                      id="description"
+                      onChange={handleChange}
+                      value={details.description}
+                    ></textarea>
+                    <label htmlFor="price">Price:</label>
+                    <input
+                      type="text"
+                      id="price"
+                      onChange={handleChange}
+                      value={details.price}
+                    />
+                    <button type="submit" className="button">
+                      Update Product
+                    </button>
+                  </form>
+                )}
+                <div className="delete">
+                  <h4>Delete Product:</h4>
+                  <button onClick={deleted} className="button">
+                    Delete
                   </button>
-                </form>
-              )}
-            </div>
-            <div className="delete">
-              <h4>Delete Product:</h4>
-              <button onClick={deleted} className="button">
-                Delete
-              </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div>
+      <div className="product-info">
+        <h1>
+          {productDetails?.name} ${productDetails?.price}
+        </h1>
+      </div>
+      <div className="details-row">
+        <div className="details-column">
+          <div className="img-column">
+            <img
+              src={productDetails?.image}
+              alt="product-card"
+              className="details-img"
+            />
+          </div>
+        </div>
+        <div className="details-column">
+          <div className="description-column">
+            <div className="details-description">
+              <h3>Description: {productDetails?.description}</h3>
             </div>
           </div>
         </div>
       </div>
-      <div className="homebtn">
-        <Link to="/">
-          <button className="button">Home</button>
-        </Link>
-      </div>
     </div>
   )
+  ;<div className="homebtn">
+    <Link to="/">
+      <button className="button">Home</button>
+    </Link>
+  </div>
 }
 
 export default ProductDetails
